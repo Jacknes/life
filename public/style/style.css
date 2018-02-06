@@ -1,0 +1,23 @@
+.month-circle {
+    height: 20px;
+    width: 20px;   
+    float: left;
+}
+
+.life-in-months {
+    max-width: 750px;
+    text-align: center;
+}
+
+.birth-date-selector {
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+}
+
+.date {
+    padding: 5px;
+    margin: 5px;
+}
