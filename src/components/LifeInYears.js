@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 
 import Circle from './Circle';
 
-//const _lifeExpectancy = 80.7 * 12;
-
-
-const LifeInMonths = (props) => {
-    const _lifeExpectancy = props.LifeExpectancy * 12;
+const LifeInYears = (props) => {
+    const _lifeExpectancy = props.LifeExpectancy;
     var split = props.dob.split(/\D/);
     let dob = new Date(split[0], --split[1], split[2]);
     let current = new Date();
-    let years = ((current.getFullYear() - dob.getFullYear()) * 12);
+    let years = (current.getFullYear() - dob.getFullYear());
     let months = (current.getMonth() - dob.getMonth());
-    let difference = (years + months);
+    console.log('months', months);
+    console.log('years ', years);
+    let difference = months < 0 ? years - 1 : years;
+    //let difference = years;
     console.log(difference);
     
     let colours = [];
@@ -26,18 +26,17 @@ const LifeInMonths = (props) => {
     let circleObjects = colours.map((result) => {
         return <Circle 
                 colour={result}
-                frame='month'/>
+                frame='year'/>
     });
     
     return (
-        <div class="life-in-months">
-            <h3>Your life in Months</h3>
-            {/* <p>Each row represents 36 months or 3 years.</p> */}
+        <div class="life-in-years">
+            <h3>Your life in Years</h3>
             {circleObjects}
             <br/>
-            <p>You have lived for {difference} months. Only {_lifeExpectancy - difference} to go! (Assuming you live the average: {_lifeExpectancy / 12})</p>
+            <p>You have lived for {difference} years. Only {_lifeExpectancy - difference} to go! (Assuming you live the average: {_lifeExpectancy})</p>
         </div>
     );
 }
 
-export default LifeInMonths;
+export default LifeInYears;

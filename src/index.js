@@ -3,16 +3,19 @@ import ReactDOM from 'react-dom';
 
 import BirthDateSelector from './components/BirthDateSelector';
 import LifeInMonths from './components/LifeInMonths';
+import LifeInYears from './components/LifeInYears';
 
 class App extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            dob: null
+            dob: null,
+            LifeExpectancy: 90
         };
         this.dobChanged = this.dobChanged.bind(this);
     }
+    
 
     dobChanged(dob) {
         this.setState({dob});
@@ -30,8 +33,13 @@ class App extends Component {
                     <div class="col-md-8">
                     <h1 className='title'>This is your life broken down</h1>
                     <BirthDateSelector onDobChanged={this.dobChanged} />
+                    <LifeInYears 
+                        dob={this.state.dob}
+                        LifeExpectancy={this.state.LifeExpectancy}
+                    />
                     <LifeInMonths 
                         dob={this.state.dob}
+                        LifeExpectancy={this.state.LifeExpectancy}
                     />
                     </div>
                     <div class="col-md-2"></div>
