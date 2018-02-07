@@ -4,9 +4,22 @@
     float: left;
 }
 
+.year-circle {
+    height: 40px;
+    width: 40px;   
+    float: left;
+}
+
 .life-in-months {
     max-width: 750px;
     text-align: center;
+    margin: 0 auto;
+}
+
+.life-in-years {
+    max-width: 400px;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .birth-date-selector {
